@@ -1,0 +1,79 @@
+.main-layout-aside {
+    background:#294064;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+.main-content-sider {
+    position: relative;
+}
+.main-content-sider .sider-back {
+    position: absolute;
+    right: 0;
+    top:0;
+    width: 56px;
+    height: 56px;
+    text-align: center;
+    line-height: 56px;
+    background: #4D607E;
+}
+.main-content-sider  header{
+    font-size: 19px;
+    color:#b3b3b3;
+    height: 56px;
+    line-height: 56px;
+    padding: 0 15px;
+}
+.ant-menu-item-active,
+.ant-menu-item:hover,
+.ant-menu-submenu-active,
+.ant-menu-submenu-title:hover{
+    color:#fff
+}
+.main-content-sider .ant-menu {
+    background:#294064;
+    color:#b3b3b3;
+    font-size: 18px;
+}
+.main-content-sider .ant-menu-inline,.main-content-sider .ant-menu-vertical {
+    border:none
+}
+.main-content-sider .ant-menu-inline .ant-menu-item-selected,
+.main-content-sider .ant-menu-inline .ant-menu-selected {
+    border-right: 10px solid #108ee9;
+}
+.main-content-sider .ant-menu:not(.ant-menu-horizontal) .ant-menu-item-selected {
+    background-color: #253753;
+}
+.main-content-sider .ant-menu-item-selected {
+    color:#fff;
+}
+.main-content-sider .ant-menu-submenu-open {
+    color: #fff;
+    background-color: #253959;
+}
+.main-content-sider .ant-menu-submenu-open .ant-menu {
+    color: #fff;
+    background-color: #253959;
+}
+.main-content-sider .ant-menu-inline>.ant-menu-item {
+    font-size: 14px;
+    padding-left: 75px!important;
+}
+.main-content-sider .ant-menu-inline>.ant-menu-submenu>.ant-menu-submenu-title {
+    font-size: 16px;
+}
+.main-content-sider .ant-menu-inline>.ant-menu-submenu>.ant-menu-submenu-title div {
+    padding-left: 40px;
+    position: relative;
+}
+.main-content-sider .ant-menu-inline>.ant-menu-submenu>.ant-menu-submenu-title div span:first-child {
+    position: absolute;
+    top:13px;
+    left:0
+}
+.overflow-hidden header {
+    overflow: hidden;
+}
+.overflow-hidden .ant-menu-submenu-title:after {
+    content:"";
+}

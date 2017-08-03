@@ -1,0 +1,84 @@
+/**************************往来对账单模块*****************************/
+.Account-inner-content {
+    padding: 20px;
+    background: #fff;
+}
+.Account-inner-content .financial-search-keys {
+    margin-top: 0;
+    background: #e9e9e9;
+}
+.financial-category-search-key .unique-i {
+    margin-left: 105px;
+}
+.account-table thead > tr > th {
+    text-align: center;
+}
+.Account-content .hc-scc-table {
+    padding: 12px 0;
+}
+.Account-content .hc-scc-table .ant-table-fixed-header .ant-table-scroll .ant-table-header {
+    overflow: hidden;
+}
+.account-table .ant-table-header {
+    background: #fff;
+}
+.account-table .table-last-th-up:after {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 19px;
+    height: 50px;
+    right: 0px;
+    display: block;
+    content: ' ';
+    background: #EDF9FF;
+    z-index: 1;
+}
+.account-table .ant-table-bordered .ant-table-thead > tr > th:last-child {
+    border-right: none;
+}
+.account-table .ant-table-tbody > tr > td {
+    padding-left: 10px;
+}
+.back-btn {
+    margin-right: 20px;
+}
+.back-btn span {
+    margin-right: 4px;
+}
+.account-details-table .ant-table-thead>tr>th {
+    background: #f7f7f7;
+}
+.account-details-table .ant-table-header tr > th {
+    text-align: center;
+}
+.account-details-table .table-last-th-up:after {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 19px;
+    height: 50px;
+    right: 0px;
+    display: block;
+    content: ' ';
+    background: #f7f7f7;
+    z-index: 1;
+}
+.hc-scc-table-scroll-y .table-last-th-up:after {
+    display: none;
+}
+.href-btn {
+    cursor: pointer;
+}
+.red-right {
+    color: red;
+    text-align: right;
+    margin-right: 10px;
+    font-weight: bold;
+}
+.hc-scc-table .ant-table-tbody > tr:hover {
+    background: #fff;
+}
+.hc-scc-table .ant-table-tbody > tr>td:hover {
+    background: #f7f7f7;
+}

@@ -1,0 +1,62 @@
+.cost-content {
+    background: #fff;
+    padding-bottom: 12px;
+}
+.GoodsSold-content {
+    background: #fff;
+}
+.GoodsSold-content .hc-scc-table {
+    padding: 12px 0;
+}
+.GoodsSold-content header {
+    font-size: 14px;
+    padding: 9px 14px;
+    border-bottom: 3px solid #ececec;
+    color: #333;
+    font-weight: bold;
+}
+.financial-search-keys {
+    position: relative;
+    padding: 0px 12px;
+    margin-top: 15px;
+}
+.financial-category-search-key {
+    overflow: hidden;
+    padding:7px 0;
+}
+.financial-category-search-key>p {
+    float: left;
+    width: 230px;
+    margin-right: 10px;
+}
+.financial-category-search-key>span {
+    float: left;
+    width: 200px;
+    margin-right: 10px;
+    line-height: 30px;
+    height: 30px;
+}
+.financial-category-search-key>a {
+    margin: 0 10px;
+}
+.financial-category-search-key p input {
+    width: 150px;
+}
+.financial-search-key-name {
+    display: inline-block;
+    line-height: 30px;
+    width: 70px;
+    text-align: right;
+    margin-right: 10px;
+    font-style: normal;
+}
+.financial-category-search-key .long-label {
+    width: 120px;
+}
+.financial-category-search-key .must-param {
+    color: red;
+    margin-left: 5px;
+}
+.financial-category-search-key>.long-text {
+    width: 300px;
+}

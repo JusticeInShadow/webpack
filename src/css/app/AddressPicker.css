@@ -1,0 +1,85 @@
+.address-modal .ant-modal-header{
+    background-image:linear-gradient(-180deg, #ffffff 0%, #ededed 100%);
+}
+.address-modal .ant-modal-footer {
+    background: #f2f2f2;
+}
+.address-modal-content {
+    overflow: hidden;
+}
+.address-modal-content-left {
+    float: left;
+    width: 200px;
+    margin-right: -1px;
+}
+.address-modal-content-right {
+    float: left;
+    width: 369px;
+}
+.address-modal-title {
+    font-size: 16px;
+    padding-bottom: 15px;
+    color: #666;
+}
+.address-modal-listBox {
+    height: 50px;
+    border: 1px solid #dedede;
+    border-bottom: none;
+}
+.address-modal-search-input {
+    padding: 13px 15px 0;
+}
+.address-modal-search-input .ant-input {
+    height: 36px;
+    border-radius: 18px;
+    padding:0 18px;
+    font-size: 14px;
+}
+.address-modal-search-input .ant-input-suffix {
+    right: 18px;
+}
+.address-modal-search-input .ant-input-search-icon {
+    font-size: 16px;
+}
+.address-modal-list li {
+    height: 35px;
+    line-height: 35px;
+    padding-left: 15px;
+    font-size: 16px;
+    color: #666;
+}
+.address-modal-list {
+    height: 350px;
+    border: 1px solid #dedede;
+    border-top:none;
+    overflow: auto;
+}
+.company-item {
+    overflow: hidden;
+    position: relative;
+}
+.company-item-left {
+    float: left;
+    width: 184px;
+    height: 35px;
+    border-right: 1px solid #dedede;
+}
+.company-item-right {
+    float: left;
+    padding-left: 15px;
+    overflow: hidden;
+    text-overflow:ellipsis;
+    white-space: nowrap;
+    width:300px;
+}
+.company-item>.icon-Artboard_k {
+    color: #34A363;
+}
+.company-item>.icon-Artboard_l {
+    color: #dedede;
+}
+.company-item>span {
+    position: absolute;
+    right: 10px;
+    top:10px
+}

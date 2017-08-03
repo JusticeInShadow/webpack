@@ -1,0 +1,145 @@
+.ant-layout-header {
+    background-image: linear-gradient(-180deg, #2a4867 6%, #162f48 100%);
+    box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.12), 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    height: 56px;
+    line-height: 56px;
+}
+
+.ant-dropdown-trigger,
+.btn-menu-app,.main-header div{
+    line-height: normal;
+}
+
+.main-content {
+    background: #fff;
+    position: relative;
+    display: flex;
+    display: -webkit-flex;
+    flex-direction: column;
+}
+.layout-header{
+    padding:0;
+}
+
+.main-header,
+.main-content {
+    width: 1336px;
+    margin: 0 auto;
+}
+
+.main-header .logo {
+    height: 30px;
+    width: 80px;
+    display: block;
+    margin-top: 10px;
+    float: left;
+}
+
+.main-header .logo img {
+    width: 100%;
+    height: 100%;
+}
+
+.main-header span.logo-text {
+    display: inline-block;
+    font-size: 24px;
+    color: #ffffff;
+    opacity: 0.39;
+    padding: 0 10px;
+    border-left: 2px solid #fff;
+    margin-left: 20px;
+    line-height: 24px;
+    margin-top: 16px;
+}
+
+.btn-menu-app .help{
+    float: left;
+    position: absolute;
+    right: 70px;
+    top: 11px;
+}
+.btn-menu-app{
+    float: right;
+    position: relative;
+}
+.btn-menu-app:after{
+    display: block;
+    content: '';
+    clear: both;
+    overflow: hidden;
+}
+.btn-menu-app .menu-item{
+    margin-top: 15px;
+    background: #a2a2a2;
+}
+
+.menu-item:after{
+    display: block;
+    content: '';
+    clear: both;
+    overflow: hidden;
+}
+
+.btn-menu-app .menu-item img{
+    width: 24px;
+    height: 24px;
+    background: #fff;
+    float:left;
+}
+
+.btn-menu-app .menu-item .icon-icon1{
+    color:#000;
+    display: inline-block;
+    width:25px;
+    height:24px;
+    line-height: 24px;
+    text-align:center;
+    cursor: pointer;
+}
+
+.btn-menu-app .menu-list{
+    width: 138px;
+    height: 26px;
+    font-size: 14px;
+    position: absolute;
+    right: 0;
+    top: 40px;
+    display: block;
+    text-align: left;
+    background-color: #fff;
+    border-radius: 4px;
+    box-shadow: 0 1px 6px rgba(0, 0, 0, 0.2);
+    background-clip: padding-box;
+    cursor: pointer;
+}
+.btn-menu-app .menu-list li{
+    padding: 0 10px 0 11px;
+}
+.btn-menu-app .menu-list li:after{
+    display: block;
+    clear: both;
+    content: "";
+    visibility: hidden;
+}
+.btn-menu-app .menu-list li > p {
+    float: left;
+    color: #333333;
+    line-height: 26px;
+}
+
+.btn-menu-app .menu-list li > span {
+    float: right;
+    color: #333333;
+    line-height: 26px;
+}
+
+.btn-menu-app .hide{
+    display: none;
+}
+.btn-menu-app .menu-item i {
+    padding: 6px 6px;
+    font-size: 8px;
+    color: #000;
+    line-height: 24px;
+    cursor:pointer;
+}
