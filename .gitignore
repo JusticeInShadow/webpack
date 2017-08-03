@@ -5,3 +5,7 @@
 **/.settings
 **/.project
 node_modules/
+/lib
+server.js
+pm2.config.js
+
