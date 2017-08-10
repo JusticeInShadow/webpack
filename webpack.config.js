@@ -68,8 +68,8 @@ const plugins = () => {
     ], devPlugins = [
         new ExtractTextPlugin('css/[name].css'),                   //把css单独分离出来的插件，需要和modules配合使用
         new webpack.DllReferencePlugin({
-            context:__dirname,
-            manifest:resolve(__dirname, distPath,"manifest.json")
+            context:resolve(__dirname, distPath,"js"),
+            manifest:resolve(__dirname, distPath,"js","manifest.json")
         })
     ], testPlugins = [
         new ExtractTextPlugin('css/[name]_[hash:8].css'),

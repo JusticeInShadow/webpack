@@ -7,7 +7,7 @@
     "build": "cross-env NODE_ENV=product gulp --gulpfile ./gulpfile.js",
     "buildDev": "cross-env NODE_ENV=develop gulp dev --gulpfile ./gulpfile.js",
     "buildTest": "cross-env NODE_ENV=test gulp test --gulpfile ./gulpfile.js",
-    "dev": "cross-env NODE_ENV=develop webpack"
+    "buildDll": "cross-env NODE_ENV=develop webpack --config dll.config.js"
   },
   "devDependencies": {
     "babel-core": "~6.18.2",

@@ -26,11 +26,11 @@ module.exports = {
         library: '[name]',
     },
     entry:{
-        "lib":vendors,
+        "vendor":vendors,
     },
     plugins:[
         new webpack.DllPlugin({
-            path: resolve(__dirname, distPath,"manifest.json"),
+            path: resolve(__dirname, distPath,"js","manifest.json"),
             name: '[name]',
             context: __dirname,
         })

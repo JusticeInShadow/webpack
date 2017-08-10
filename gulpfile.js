@@ -28,7 +28,7 @@ gulp.task("buildDev", function (callback) {
     });
 });
 
-gulp.task("runDllPlugin",["watch"],function (callback) {
+gulp.task("runDllPlugin",function (callback) {
     webpack(webpackDllPlugin, function(err, stats) {
         console.log("err:"+err+" stats:"+stats);
         callback();
@@ -46,7 +46,7 @@ gulp.task('watch', ['buildDev'],function (done) {
 gulp.task('default', ['build']);
 
 //开发
-gulp.task('dev', ['runDllPlugin']);
+gulp.task('dev', ['watch']);
 
 //测试服务器
 gulp.task('test', ['build']);
