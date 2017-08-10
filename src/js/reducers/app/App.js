@@ -43,7 +43,8 @@ import {
     ACCOUNT_TABLE_DATE_CHANGE,
     ACCOUNT_TABLE_DATA_CHANGE,
     ACCOUNT_DETAILS_LIST_CHANGE,
-    ACCOUNT_DETAILS_LIST_PARAMS_CHANGE
+    ACCOUNT_DETAILS_LIST_PARAMS_CHANGE,
+    COLUMN_CHANGE
 } from '../../constants/ActionConstant'
 import {getUser,getMainSider,getAccount} from '../../utils/StorageUtil';
 import {getNowMonth} from "../../utils/Util"
@@ -627,6 +628,62 @@ function downloadList(state, action) {
     }
 }
 
+//下载报告一览
+function testList(state, action) {
+    state = state || {
+        column:[{
+            name:"id",
+            width: 60,
+            canResize:true,
+        }, {
+            name:"file_url",
+            width:100,
+            canResize:true,
+        }, {
+            name:"report_title",
+            width:160,
+            canResize:true,
+        }, {
+            name:"file_name",
+            width:245,
+            canResize:true,
+        },{
+            name:"status",
+            width:80,
+            canResize:true,
+        }, {
+            name:"operate",
+            width:65,
+            canResize:true,
+        }, {
+            name:"start_time",
+            width:160,
+            canResize:true,
+        },{
+            name:"end_time",
+            width:160,
+            canResize:true,
+        }],
+        style:{
+            display:"block",
+            left:"0px",
+            top:0,
+            bottom:0,
+            width:"1px",
+            background:"#e9e9e9",
+            position: "absolute"
+        }
+    };
+    if (action.type == COLUMN_CHANGE) {
+        console.log("M层，"+action.data[0].width);
+        return Object.assign({}, state, {column:action.data});
+    } else if(action.type == LOADING_CHANGE){
+        return Object.assign({}, state, {style:action.data});
+    } else {
+        return state;
+    }
+}
+
 export let reducer = combineReducers({
     common: common,//公共信息
     showMenu: showMenu,
@@ -644,5 +701,6 @@ export let reducer = combineReducers({
     selectModal:selectModal,    //选公司组件
     account:account ,      //往来对账单
     accountDetails:accountDetails,     //往来对账单明细
+    testList:testList
 });
 

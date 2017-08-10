@@ -27,6 +27,7 @@ import Payable from "../views/app/pay/Payable";
 import PayInAdvance from "../views/app/pay/PayInAdvance";
 import List from "../views/app/list/List";
 import Download from "../views/app/list/Download";
+import Test from "../views/app/test/Test";
 import Immutable from "immutable";
 
 const initialState = Immutable.Map();
@@ -37,7 +38,7 @@ render((
         <Provider store={store}>
             <Router history={hashHistory}>
                 <Route path="/" component={Main}>
-                    <IndexRoute component={Index}/>
+                    <IndexRoute component={Test}/>
                     <Route path="ledger" component={Ledger}>
                         <Route path="accountReconciliation" component={AccountReconciliation}/>
                         <Route path="accountReconcileDetails" component={AccountReconcileDetails}/>
@@ -59,6 +60,7 @@ render((
                     <Route path="list" component={List}>
                         <Route path="download" component={Download}/>
                     </Route>
+                    <Route path="test" component={Test}/>
                 </Route>
             </Router>
         </Provider>

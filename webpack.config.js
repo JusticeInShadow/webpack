@@ -10,7 +10,7 @@ const UglifyJsPlugin = require('uglifyes-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const path = require('path');
 const del = require("del");
-
+const webpack = require("webpack");
 const node_env = process.env.NODE_ENV; //dev-开发（热加载）;test-测试；product-生产
 const distPath = node_env == "develop"? "../webapp/newFrame/" + node_env:"./" + node_env;
 const pathSrc = path.resolve(__dirname, "src");
@@ -23,14 +23,14 @@ console.log("path"+distPath);
 const entry = () => (
     {
         index: resolve(__dirname, 'src/js/pages/app.js'),           //入口文件
-        vendor: [                                                  //公共资源js打包成一个文件；
+/*        vendor: [                                                  //公共资源js打包成一个文件；
             'react',
             'react-dom',
             'react-router',
             'react-redux',
             'redux',
             'redux-thunk'
-        ]
+        ]*/
     }
 );
 
@@ -64,9 +64,13 @@ const plugins = () => {
             {from: resolve(__dirname, "src/images/"), to: resolve(__dirname, distPath+"/images/"), toType: 'dir'},
             {from: resolve(__dirname, "src/html/404.html"), to: resolve(__dirname, distPath+"/html/"), toType: 'dir'},
             {from: resolve(__dirname, "src/html/500.html"), to: resolve(__dirname, distPath+"/html/"), toType: 'dir'}
-        ])
+        ]),
     ], devPlugins = [
         new ExtractTextPlugin('css/[name].css'),                   //把css单独分离出来的插件，需要和modules配合使用
+        new webpack.DllReferencePlugin({
+            context:__dirname,
+            manifest:resolve(__dirname, distPath,"manifest.json")
+        })
     ], testPlugins = [
         new ExtractTextPlugin('css/[name]_[hash:8].css'),
     ], prodPlugins = [

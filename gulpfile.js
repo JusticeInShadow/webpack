@@ -4,6 +4,7 @@
 'use strict';
 var gulp = require('gulp'),
     webpack = require('webpack'),
+    webpackDllPlugin = require("./dll.config.js"),
     webpackConfig = require('./webpack.config.js'),
     path = require("path");
 var NODE_ENV = process.env.NODE_ENV || 'product';//测试环境和开发环境为develop 生产环境为product
@@ -27,6 +28,12 @@ gulp.task("buildDev", function (callback) {
     });
 });
 
+gulp.task("runDllPlugin",["watch"],function (callback) {
+    webpack(webpackDllPlugin, function(err, stats) {
+        console.log("err:"+err+" stats:"+stats);
+        callback();
+    });
+});
 
 //监听
 gulp.task('watch', ['buildDev'],function (done) {
@@ -39,7 +46,7 @@ gulp.task('watch', ['buildDev'],function (done) {
 gulp.task('default', ['build']);
 
 //开发
-gulp.task('dev', ['watch']);
+gulp.task('dev', ['runDllPlugin']);
 
 //测试服务器
 gulp.task('test', ['build']);

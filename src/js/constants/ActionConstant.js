@@ -56,3 +56,5 @@ export const ACCOUNT_DETAILS_LIST_CHANGE = 'account_details_list_change';
 export const ACCOUNT_DETAILS_LIST_PARAMS_CHANGE = 'account_details_list_params_change';
 //下载报告一览
 export const DOWNLOAD_LIST_CHANGE = 'download_list_change';
+//新功能开发测试
+export const COLUMN_CHANGE = 'column_change';
