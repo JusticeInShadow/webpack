@@ -14,7 +14,8 @@ import {columnChange,
 } from "../../../actions/app/Test";
 import moment from "moment";
 import classnames from "classnames";
-import {getThousands,getNo,getNowMonth,trim} from "../../../utils/Util";
+import {getThousands,getNo,getNowMonth,trim,isIe,getPaste} from "../../../utils/Util";
+import TableDragLine from "../../../components/TableDragLine"
 import "./Test.css"
 
 const { MonthPicker, RangePicker } = DatePicker;
@@ -46,9 +47,7 @@ class GoodsSoldComp extends Component {
                    onMouseMove={(e)=>this._mouseMove(e)}
                    onMouseUp={(e)=>this._mouseUp(e)}>#</p>
                 {this.lastTableHeaderTh == "id"?"":
-                    <div className="th-resize" onMouseDown={(e)=>this.handleMouseDown(e,"id")}>
-                    <span></span>
-                </div>}
+                    <TableDragLine handleDragLine={(e)=>this.handleMouseDown(e,"id")}/>}
             </div>),
             dataIndex: 'id',
             key: 'id',
@@ -62,10 +61,7 @@ class GoodsSoldComp extends Component {
                 <p className="hc-t-head-operate">&nbsp;</p>
                 <p className="hc-t-head-text table-sorter" ref="file_url">输出报告</p>
                 {this.lastTableHeaderTh == "file_url"?"":
-                <div className="th-resize"
-                     onMouseDown={(e)=>this.handleMouseDown(e,"file_url")}>
-                    <span></span>
-                </div>}
+                    <TableDragLine handleDragLine={(e)=>this.handleMouseDown(e,"file_url")}/>}
             </div>),
             dataIndex: 'file_url',
             key: 'file_url',
@@ -88,10 +84,7 @@ class GoodsSoldComp extends Component {
                 </p>
                 <p className="hc-t-head-text table-sorter" ref="report_title">报告名称</p>
                 {this.lastTableHeaderTh == "report_title"?"":
-                <div className="th-resize"
-                     onMouseDown={(e)=>this.handleMouseDown(e,"report_title")}>
-                    <span></span>
-                </div>}
+                    <TableDragLine handleDragLine={(e)=>this.handleMouseDown(e,"report_title")}/>}
             </div>),
             dataIndex: 'report_title',
             key: 'report_title',
@@ -104,10 +97,7 @@ class GoodsSoldComp extends Component {
                 <p className="hc-t-head-operate">&nbsp;</p>
                 <p className="hc-t-head-text table-sorter" ref="file_name">版本明细</p>
                 {this.lastTableHeaderTh == "file_name"?"":
-                <div className="th-resize"
-                     onMouseDown={(e)=>this.handleMouseDown(e,"file_name")}>
-                    <span></span>
-                </div>}
+                    <TableDragLine handleDragLine={(e)=>this.handleMouseDown(e,"file_name")}/>}
             </div>),
             dataIndex: 'file_name',
             key: 'file_name',
@@ -127,10 +117,7 @@ class GoodsSoldComp extends Component {
                 </p>
                 <p className="hc-t-head-text table-sorter" ref="start_time">下载开始日期</p>
                 {this.lastTableHeaderTh == "start_time"?"":
-                <div className="th-resize"
-                     onMouseDown={(e)=>this.handleMouseDown(e,"start_time")}>
-                    <span></span>
-                </div>}
+                    <TableDragLine handleDragLine={(e)=>this.handleMouseDown(e,"start_time")}/>}
             </div>),
             dataIndex: 'start_time',
             key: 'start_time',
@@ -150,10 +137,7 @@ class GoodsSoldComp extends Component {
                 </p>
                 <p className="hc-t-head-text table-sorter" ref="end_time">下载结束日期</p>
                 {this.lastTableHeaderTh == "end_time"?"":
-                <div className="th-resize"
-                     onMouseDown={(e)=>this.handleMouseDown(e,"end_time")}>
-                    <span></span>
-                </div>}
+                    <TableDragLine handleDragLine={(e)=>this.handleMouseDown(e,"end_time")}/>}
             </div>),
             dataIndex: 'end_time',
             key: 'end_time',
@@ -172,10 +156,7 @@ class GoodsSoldComp extends Component {
                 </div>
                 <p className="hc-t-head-text" ref="status">状态</p>
                 {this.lastTableHeaderTh == "status"?"":
-                <div className="th-resize"
-                     onMouseDown={(e)=>this.handleMouseDown(e,"status")}>
-                    <span></span>
-                </div>}
+                    <TableDragLine handleDragLine={(e)=>this.handleMouseDown(e,"status")}/>}
             </div>),
             dataIndex: 'status',
             key: 'status',
@@ -193,10 +174,7 @@ class GoodsSoldComp extends Component {
                 <p className="hc-t-head-operate hc-operate-last">&nbsp;</p>
                 <p className="hc-t-head-text" ref="operate">操作</p>
                 {this.lastTableHeaderTh == "operate"?"":
-                <div className="th-resize"
-                     onMouseDown={(e)=>this.handleMouseDown(e,"operate")}>
-                    <span></span>
-                </div>}
+                    <TableDragLine handleDragLine={(e)=>this.handleMouseDown(e,"operate")}/>}
             </div>),
             dataIndex: 'operate',
             key: 'operate',
@@ -365,12 +343,11 @@ class GoodsSoldComp extends Component {
             column[i].width = refDom.clientWidth;
         }
         this.props.actions.columnChange(column);
-        let isIe = ("ActiveXObject" in window);
-        console.log("这是ie浏览器么？"+isIe+"。");
         const handlePaste = function(e) {
             debugger;
-            if(e.clipboardData.types.indexOf('text/html') > -1 && e.target.tagName === "INPUT"){
-                let plain = e.clipboardData.getData('text/plain');
+            let isIe = isIe();
+            let plain = getPaste();
+            if(undefined !== plain && null !== plain && "" !== plain){
                 plain = plain.split("\n");
                 let finnalObjArr = [];
                 for(let i in plain){
@@ -390,13 +367,13 @@ class GoodsSoldComp extends Component {
                         h:itemArr[7],
                         i:itemArr[8],
                         j:itemArr[9],
-                    }
+                    };
                     finnalObjArr.push(itemObj);
                 }
                 console.log(finnalObjArr);
                 e.preventDefault(); // We are already handling the data from the clipboard, we do not want it inserted into the document
             }
-        }
+        };
         document.addEventListener('paste', handlePaste);
     }
 

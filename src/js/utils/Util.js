@@ -179,3 +179,23 @@ export const getThousands = function (num) {
     return newNum;
 };
 
+/**
+ * 判断是否是ie浏览器
+ * @returns {*|boolean}
+ */
+export const isIe = function () {
+    return ("ActiveXObject" in window);
+};
+
+/**
+ * 获取剪切板内容
+ * @param email
+ * @returns {*|boolean}
+ */
+export const getPaste = function (isIe) {
+    if(isIe){
+        return window.clipboardData.getData("text");
+    }else if(e.clipboardData.types.indexOf('text/html') > -1 && e.target.tagName === "INPUT"){
+        return e.clipboardData.getData('text/plain');
+    }
+};
