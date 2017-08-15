@@ -62,6 +62,7 @@ const plugins = () => {
         }),
         new CopyWebpackPlugin([                                    //复制文件
             {from: resolve(__dirname, "src/images/"), to: resolve(__dirname, distPath+"/images/"), toType: 'dir'},
+            {from: resolve(__dirname, "src/js/lib/"), to: resolve(__dirname, distPath+"/js/lib/"), toType: 'dir'},
             {from: resolve(__dirname, "src/html/404.html"), to: resolve(__dirname, distPath+"/html/"), toType: 'dir'},
             {from: resolve(__dirname, "src/html/500.html"), to: resolve(__dirname, distPath+"/html/"), toType: 'dir'}
         ]),

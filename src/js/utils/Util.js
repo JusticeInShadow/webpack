@@ -178,3 +178,4 @@ export const getThousands = function (num) {
     let newNum = oriNum.replace(re,"$1,");
     return newNum;
 };
+

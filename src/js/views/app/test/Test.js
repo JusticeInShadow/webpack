@@ -365,6 +365,39 @@ class GoodsSoldComp extends Component {
             column[i].width = refDom.clientWidth;
         }
         this.props.actions.columnChange(column);
+        let isIe = ("ActiveXObject" in window);
+        console.log("这是ie浏览器么？"+isIe+"。");
+        const handlePaste = function(e) {
+            debugger;
+            if(e.clipboardData.types.indexOf('text/html') > -1 && e.target.tagName === "INPUT"){
+                let plain = e.clipboardData.getData('text/plain');
+                plain = plain.split("\n");
+                let finnalObjArr = [];
+                for(let i in plain){
+                    let item = plain[i];
+                    let itemArr= item.split("\t");
+                    if(itemArr.length == 1 && "" === itemArr[0]){
+                        continue;
+                    }
+                    let itemObj = {
+                        a:itemArr[0],
+                        b:itemArr[1],
+                        c:itemArr[2],
+                        d:itemArr[3],
+                        e:itemArr[4],
+                        f:itemArr[5],
+                        g:itemArr[6],
+                        h:itemArr[7],
+                        i:itemArr[8],
+                        j:itemArr[9],
+                    }
+                    finnalObjArr.push(itemObj);
+                }
+                console.log(finnalObjArr);
+                e.preventDefault(); // We are already handling the data from the clipboard, we do not want it inserted into the document
+            }
+        }
+        document.addEventListener('paste', handlePaste);
     }
 
     componentWillUnmount() {
